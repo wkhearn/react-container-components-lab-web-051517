@@ -18,16 +18,11 @@ class SearchableMovieReviewsContainer extends React.Component {
 
   handleSearchTerm = event => {
     event.preventDefault()
-    this.setState({
-      searchTerm: event.target.children[0].value
-    })
-    fetch(URL + this.state.searchTerm)
-    .then(res => res.json())
-    .then(res => this.setState({ reviews: res.results }))
-  }
-
-  componentWillMount(){
-    fetch(URL)
+    // this.setState({
+    //   searchTerm: event.target.children[0].value
+    // })
+    // fetch(URL + this.state.searchTerm)
+    fetch(URL + event.target.children[0].value)
     .then(res => res.json())
     .then(res => this.setState({ reviews: res.results }))
   }
